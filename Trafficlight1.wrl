@@ -1,0 +1,231 @@
+#VRML V2.0 utf8
+
+Group{
+  children[
+     DEF Trafficlight Transform { 
+        translation 0.0 1.5 0.0
+          children [
+           Shape {
+              appearance DEF Black Appearance {
+                   material Material {
+                       diffuseColor 0.1 0.1 0.1
+                   }
+              }
+              geometry Cylinder {
+                   height 3.0
+                   radius 0.05
+              }
+           },
+           Transform {
+             translation  0.0 1.1 0.18
+               children Shape {
+                   appearance Appearance {
+                       material Material {
+                          diffuseColor 1.0 1.0 1.0
+                       }
+                   }
+                   geometry Box {
+                        size 0.4 0.7 0.01
+                   }
+               }
+           },
+           Transform { 
+            translation 0.0 0.98 0.075
+             children [
+                Shape { 
+                     appearance USE Black
+                     geometry Box { size 0.05 0.01 0.08 }
+                }
+             ]
+           }
+           Transform { 
+            translation 0.0 1.28 0.075
+             children [
+                Shape { 
+                     appearance USE Black
+                     geometry Box { size 0.05 0.01 0.08 }
+                }
+             ]
+           }
+
+           Transform { 
+            translation -0.05 0.9 0.1  
+             children [
+                Shape {
+                     appearance USE Black
+                     geometry IndexedFaceSet {
+                        coord Coordinate {
+                           point [
+                              0.0 0.0  0.0,
+                              0.0 0.4  0.0,
+                             -0.1 0.5 0.1,               
+                             -0.1 -0.1 0.1,
+                              0.1 0.0 0.0
+                              0.2 -0.1 0.1,
+                              0.2 0.5 0.1,
+                              0.1 0.4 0.0,
+                           ]
+                        }
+                        coordIndex [
+                              0, 3, 2, 1, -1,
+                              0, 4, 5, 3, -1,
+                              4, 7, 6, 5, -1,
+                              1, 2, 6, 7, -1,
+                              6, 2, 3, 5, -1,
+                              0, 1, 7, 4, -1,
+                        ]
+                        convex FALSE
+                     }
+                },
+                #light1
+                DEF Light Transform {
+                     translation 0.05 0.24 0.1
+	             scale       1.0 1.0 0.5
+	                children Shape {
+	                    appearance Appearance {
+		                material DEF Amber1 Material {
+		                   diffuseColor 1.0 0.8 0.0
+		                }
+	                    }
+	    	            geometry Sphere {
+		                radius 0.07									
+	    	            }
+	                }	
+                },
+                Transform {
+	             translation 0.05 0.03 0.1
+                     scale       1.0  1.0  0.5
+	                 children [
+			   Shape {
+	    	             appearance Appearance {
+		                material DEF Green1 Material {
+		                   diffuseColor 0.0 1.0 0.0
+		                }
+                             }
+		             geometry Sphere {
+		                 radius 0.1									
+        	             }
+                           }
+                           Transform {
+                                rotation 1.0 0.0 0.0 1.57
+                                translation 0.0 0.0 0.05
+                                children [
+                                 Shape {
+                                    appearance Appearance {
+                                       texture ImageTexture {
+                                          url   "textures/light.png"
+                                       }
+                                    }
+                                    geometry Cylinder {
+                                       radius 0.115
+                                       height 0.1
+                                       bottom FALSE
+                                       side   FALSE
+                                    }
+                                 }
+                                 Shape {
+                                    appearance Appearance {
+                                       material Material {diffuseColor 0.0 0.0 0.0}
+                                    }
+                                    geometry Cylinder {
+                                        radius 0.115
+                                        height 0.1
+                                        bottom FALSE
+                                        top    FALSE
+                                    }
+                                 }
+                                ]
+                            }
+                         ]
+                },
+                Transform {
+	             translation 0.05 0.41 0.1
+	             scale       1.0 1.0  0.5
+                         children  Shape {
+	    	             appearance Appearance {
+		                material DEF Red1 Material {
+			           diffuseColor 1.0 0.0 0.0
+		                }
+	                     }
+		             geometry Sphere {
+		                   radius 0.07								
+		             }
+                         }
+                }
+                Transform {
+                     translation 0.05 0.41 0.1 
+                     scale       0.8 0.8 0.8     
+                         children [
+                             DEF Lightcover Shape {
+                                 appearance USE Black
+               
+               			 geometry Extrusion {
+                                    creaseAngle 1.57
+                                    endCap FALSE
+                                    beginCap FALSE
+                                    solid FALSE
+                                    crossSection [
+                                      -0.092 0.038, -0.1 0.0,
+                                      -0.092 -0.038, -0.071 -0.071,
+                                      -0.038 -0.092,  0.0  -0.1,
+                                       0.038 -0.092,  0.071 -0.071,
+                                       0.092 -0.038,  0.1 0.0,
+                                       0.092 0.038,
+                                    ]
+                                    spine [
+                                       0.0 0.0 0.0,
+                                       0.0 0.0 0.15
+                                    ]
+                                 }
+                            }
+                     ]
+                 },
+                 Transform {
+                      translation 0.05 0.24 0.1
+                      scale       0.8 0.8 0.8
+                          children USE Lightcover
+                 },
+                 Transform {
+                      translation 0.05 0.03 0.1
+                      scale       1.2  1.2  1.2
+                          children USE Lightcover
+                 }
+              ]
+	
+	    }   
+	]
+      },
+      DEF Colorclk TimeSensor {
+                    cycleInterval 20.0
+                    loop TRUE
+      },
+      DEF PathRed1 ColorInterpolator {
+                    key [0.0, 0.05, 0.055, 0.500, 0.505, 1.0]
+                    keyValue [
+                         1.0 0.0 0.0, 1.0 0.0 0.0, 0.0 0.0 0.0,
+                         0.0 0.0 0.0, 1.0 0.0 0.0, 1.0 0.0 0.0,
+                    ]
+      }, 
+      DEF PathGreen1 ColorInterpolator {
+                    key [0.0, 0.05, 0.055, 0.400, 0.405, 1.0]
+                    keyValue [
+                         0.0 0.0 0.0, 0.0 0.0 0.0, 0.0 1.0 0.0,
+                         0.0 1.0 0.0, 0.0 0.0 0.0, 0.0 0.0 0.0,
+                    ]
+      }, 
+      DEF PathAmber1 ColorInterpolator {
+                    key [0.0, 0.40, 0.405, 0.500, 0.505, 1.0]
+                    keyValue [
+                         0.0 0.0 0.0, 0.0 0.0 0.0, 1.0 0.8 0.0,
+                         1.0 0.8 0.0, 0.0 0.0 0.0, 0.0 0.0 0.0,
+                    ]
+      },                           
+     ]               
+                    
+}
+ROUTE Colorclk.fraction_changed  TO PathRed1.set_fraction
+ROUTE PathRed1.value_changed    TO Red1.set_diffuseColor
+ROUTE Colorclk.fraction_changed  TO PathGreen1.set_fraction
+ROUTE PathGreen1.value_changed  TO Green1.set_diffuseColor
+ROUTE Colorclk.fraction_changed  TO PathAmber1.set_fraction
+ROUTE PathAmber1.value_changed  TO Amber1.set_diffuseColor

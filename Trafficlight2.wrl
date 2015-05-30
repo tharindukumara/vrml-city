@@ -1,0 +1,250 @@
+#VRML V2.0 utf8
+
+Group{
+  children[
+     DEF Trafficlight Transform { 
+        #Traffic light Pole
+        translation 0.0 1.5 0.0
+          children [
+           Shape {
+              appearance DEF Black Appearance {
+                   material Material {
+                       diffuseColor 0.1 0.1 0.1
+                   }
+              }
+              geometry Cylinder {
+                   height 3.0
+                   radius 0.05
+              }
+           },
+           #The white surround for the light
+           Transform {
+             translation  0.0 1.1 0.18
+               children Shape {
+                   appearance Appearance {
+                       material Material {
+                          diffuseColor 1.0 1.0 1.0
+                       }
+                   }
+                   geometry Box {
+                        size 0.4 0.7 0.01
+                   }
+               }
+           },
+           #The brackets which connect the light box to the pole
+           Transform { 
+            translation 0.0 0.98 0.075
+             children [
+                Shape { 
+                     appearance USE Black
+                     geometry Box { size 0.05 0.01 0.08 }
+                }
+             ]
+           },
+           Transform { 
+            translation 0.0 1.28 0.075
+             children [
+                Shape { 
+                     appearance USE Black
+                     geometry Box { size 0.05 0.01 0.08 }
+                }
+             ]
+           },
+           #This is the light box made using an indexed face set and the
+           #lights are then nested into it
+           Transform { 
+            translation -0.05 0.9 0.1  
+             children [
+                Shape {
+                     appearance USE Black
+                     geometry IndexedFaceSet {
+                        coord Coordinate {
+                           point [
+                              0.0 0.0  0.0,
+                              0.0 0.4  0.0,
+                             -0.1 0.5 0.1,               
+                             -0.1 -0.1 0.1,
+                              0.1 0.0 0.0
+                              0.2 -0.1 0.1,
+                              0.2 0.5 0.1,
+                              0.1 0.4 0.0,
+                           ]
+                        }
+                        coordIndex [
+                              0, 3, 2, 1, -1,
+                              0, 4, 5, 3, -1,
+                              4, 7, 6, 5, -1,
+                              1, 2, 6, 7, -1,
+                              6, 2, 3, 5, -1,
+                              0, 1, 7, 4, -1,
+                        ]
+                        convex FALSE
+                     }
+                },
+                #The lights
+                Transform {
+                     translation 0.05 0.24 0.1
+	             scale       1.0 1.0 0.5
+	                children Shape {
+	                    appearance Appearance {
+                                #The light colour is defined for use in the colour interpolator at the end
+                                #Diffuse light colour was used because visually it looked better than either
+                                #the emissive colour or the coloured point light source
+		                material DEF Amber2 Material {
+		                   diffuseColor 1.0 0.8 0.0
+		                }
+	                    }
+	    	            geometry Sphere {
+		                radius 0.07									
+	    	            }
+	                }	
+                },
+                Transform {
+	             translation 0.05 0.03 0.1
+                     scale       1.0  1.0  0.5
+	                 children [
+                            Shape {
+	    	              appearance Appearance {
+                                 #Colour defined for Interpolator
+		                 material DEF Green2 Material {
+		                    diffuseColor 0.0 1.0 0.0
+		                 }
+                              }  
+                    
+                    
+		              geometry Sphere {
+		                  radius 0.1									
+        	              }
+                            }
+                            #A cylinder around the light onto which the transparent arrow is placed
+			    Transform {
+                                rotation 1.0 0.0 0.0 1.57
+                                translation 0.0 0.0 0.05
+                                children [
+                                 Shape {
+                                    appearance Appearance {
+                                       texture ImageTexture {
+                                          url   "textures/light.png"
+                                       }
+                                    }
+                                    geometry Cylinder {
+                                       radius 0.115
+                                       height 0.1
+                                       bottom FALSE
+                                       side   FALSE
+                                    }
+                                 }
+                                 Shape {
+                                    appearance Appearance {
+                                       material Material {diffuseColor 0.0 0.0 0.0}
+                                    }
+                                    geometry Cylinder {
+                                        radius 0.115
+                                        height 0.1
+                                        bottom FALSE
+                                        top    FALSE
+                                    }
+                                 }
+                                ]
+                            }
+                         ]
+                },
+                
+               , Transform {
+	             translation 0.05 0.41 0.1
+	             scale       1.0 1.0  0.5
+                         children  Shape {
+	    	             appearance Appearance {
+		                material DEF Red2 Material {
+			           diffuseColor 1.0 0.0 0.0
+		                }
+	                     }
+		             geometry Sphere {
+		                   radius 0.07								
+		             }
+                         }
+                },
+                #The light covers are the nested around the lights and extrusion is used to make them
+                Transform {
+                     translation 0.05 0.41 0.1 
+                     scale       0.8 0.8 0.8     
+                         children [
+                             DEF Lightcover Shape {
+                                 appearance USE Black
+               
+               			 geometry Extrusion {
+                                    creaseAngle 1.57
+                                    endCap FALSE
+                                    beginCap FALSE
+                                    solid FALSE
+                                    #The cross section for the cover is slightly bigger than a semicircle
+                                    crossSection [
+                                      -0.092 0.038, -0.1 0.0,
+                                      -0.092 -0.038, -0.071 -0.071,
+                                      -0.038 -0.092,  0.0  -0.1,
+                                       0.038 -0.092,  0.071 -0.071,
+                                       0.092 -0.038,  0.1 0.0,
+                                       0.092 0.038,
+                                    ]
+                                    spine [
+                                       0.0 0.0 0.0,
+                                       0.0 0.0 0.15
+                                    ]
+                                 }
+                            }
+                     ]
+                 },
+                 #The light cover is then reused and the scale is changed
+                 #to fit the different light sizes 
+                 Transform {
+                      translation 0.05 0.24 0.1
+                      scale       0.8 0.8 0.8
+                          children USE Lightcover
+                 },
+                 Transform {
+                      translation 0.05 0.03 0.1
+                      scale       1.2  1.2  1.2
+                          children USE Lightcover
+                 }
+              ]
+	
+	    }   
+	]
+      },
+      #The clock is defined to control the light animation
+      DEF Colorclk TimeSensor {
+                    cycleInterval 20.0
+                    loop TRUE
+      },
+      #The animation path is defined for each light colour
+      #This is the sequence for each light saying when its on and for how long
+      DEF PathRed2 ColorInterpolator {
+                    key [0.0, 0.55, 0.555, 0.995, 1.0]
+                    keyValue [
+                         1.0 0.0 0.0, 1.0 0.0 0.0, 0.0 0.0 0.0,
+                         0.0 0.0 0.0, 1.0 0.0 0.0,
+                    ]
+      }, 
+      DEF PathGreen2 ColorInterpolator {
+                    key [0.0, 0.55, 0.555, 0.900, 0.905, 1.0]
+                    keyValue [
+                         0.0 0.0 0.0, 0.0 0.0 0.0, 0.0 1.0 0.0,
+                         0.0 1.0 0.0, 0.0 0.0 0.0, 0.0 0.0 0.0,
+                    ]
+      }, 
+      DEF PathAmber2 ColorInterpolator {
+                    key [0.0, 0.9, 0.905, 0.995, 1.0]
+                    keyValue [
+                         0.0 0.0 0.0, 0.0 0.0 0.0, 1.0 0.8 0.0,
+                         1.0 0.8 0.0, 0.0 0.0 0.0,
+                    ]
+      } 
+  ]
+}
+#The animation is then routed or wired
+ROUTE Colorclk.fraction_changed  TO PathRed2.set_fraction
+ROUTE PathRed2.value_changed    TO Red2.set_diffuseColor
+ROUTE Colorclk.fraction_changed  TO PathGreen2.set_fraction
+ROUTE PathGreen2.value_changed  TO Green2.set_diffuseColor
+ROUTE Colorclk.fraction_changed  TO PathAmber2.set_fraction
+ROUTE PathAmber2.value_changed  TO Amber2.set_diffuseColor

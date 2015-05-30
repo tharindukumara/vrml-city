@@ -1,0 +1,82 @@
+#VRML V2.0 utf8
+
+Group {
+   children [
+        #This component is made up of several boxes of a small height which form lines
+        #This is one of the transverse (x-direction) pedestrian lines
+        Transform {
+          translation 0.0 0.0 7.0
+          rotation    0.0 1.0 0.0 1.57
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+                 #All the lines are the default white
+	     }
+	     geometry Box {
+                 #The 'lines' are 0.14 metres high so only slightly higher than the ground
+	         size 0.15 0.14 15.0
+	     }
+            }
+          ]
+        },
+        #The other pedestrian line
+        Transform {
+          translation 0.0 0.0 8.0
+          rotation    0.0 1.0 0.0 1.57
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 15.0
+	     }
+            }
+          ]
+        },
+        #Transverse line spanning half the road
+        Transform {
+          translation -3.72 0.0 9.0
+          rotation    0.0 1.0 0.0 1.57
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 7.6
+	     }
+            }
+          ]
+        },
+        #Line in the centre of the road
+        Transform {
+          translation 0.0 0.0 49.5
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 81.0
+	     }
+            }
+          ]
+        },
+        #Line in the centre of the lefthand side of the road
+        Transform {
+          translation -4.0 0.0 49.5
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 81.0
+	     }
+            }
+          ]
+        }
+   ]
+}

@@ -1,0 +1,362 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+   title "Traffic light system"
+}
+#This turns on the gravity in the world and turns off the examine option
+NavigationInfo {
+   type "WALK"
+}
+#The following Navigation types are used in the other versions of the main 
+#NavigationInfo {
+#   type "FLY"
+#}
+#NavigationInfo {
+#   type "ANY"
+#}
+Background {
+#   skyColor [ 1 1 0, 1 1 0.5, 0 0 0.5, 0.2 1 1 ]
+#   skyAngle [1.309, 1.571]
+
+	skyAngle [ 1.2 1.57]
+skyColor [0 0 1, 0 0 0.6, 1 0 0]
+groundColor [0.5 0.5 0.0]
+backUrl "textures/sunset_back.png"
+rightUrl "textures/sunset_right.png"
+leftUrl "textures/sunset_left.png"
+frontUrl "textures/sunset_front.png"
+topUrl "textures/sunset_top.png"
+bottomUrl "textures/sunset_bottom.png"
+}
+#These are the two possible fixed views available in this version
+# the others are included in the 'FLY' and "ANY' versions
+Viewpoint {
+   position -6 2 15
+   orientation 1 0 0 -0.2
+   description "View from eyelevel"
+}
+Viewpoint {
+   position  2.0 2.0 0.0
+   orientation 0 1 0 0.785
+   description "View of the lights"
+}
+#Viewpoint { 
+#   position    0 25 0
+#   orientation 1  0 0 -1.57
+#   description "View from directly above"
+#}
+#Viewpoint {
+#   position 0 20 18
+#   orientation 1 0 0 -0.785
+#   description "High-angled view" 
+#}
+# Sets the light source aswell as the headlight to a directional light source
+# of parallel light giving the impression that the light is eminating form source at infinity 
+DirectionalLight {
+   on         TRUE
+   intensity  .5
+   color      1.0 1.0 1.0  
+   ambientIntensity 1.0
+   direction -.00327 -.83034 .55724
+} 
+#The main world and its Inlined components
+#It places the Ground.wrl file in this background and places the trafficlights in the 
+#appropriate places on the ground
+Group {
+   children [
+	  
+      Inline {
+         url "Ground.wrl"
+      },
+      Transform {
+          translation 0.0 0.0 8.0
+          children [
+               Inline {
+                  url "Trafficlight1.wrl"
+               }
+          ]
+      },
+      Transform {
+          translation 0.0 0.0  8.0
+	  rotation    0.0 1.0  0.0 3.14
+             children [
+               Inline {
+                  url "Trafficlight1.wrl"
+               }
+             ]
+      },
+      Transform {
+          translation -8.0 0.0 8.0
+          children [
+               Inline {
+                  url "Trafficlight1.wrl"
+               }
+          ]
+      },
+      Transform {
+          translation 0.0 0.0  -8.0
+	  rotation    0.0 1.0  0.0 3.14
+             children [
+               Inline {
+                  url "Trafficlight1.wrl"
+               }
+             ]
+      },
+      Transform {
+          translation 0.0 0.0 -8.0
+          children [
+               Inline {
+                  url "Trafficlight1.wrl"
+               }
+          ]
+      },
+      Transform {
+          translation 8.0 0.0  -8.0
+	  rotation    0.0 1.0  0.0 3.14
+             children [
+               Inline {
+                  url "Trafficlight1.wrl"
+               }
+             ]
+      },
+      Transform {
+          translation 11.0 0.0  6.0
+          rotation    0.0 1.0   0.0 1.57
+             children [
+                Inline {
+                   url "Trafficlight2.wrl"
+                }
+             ]
+      },
+      Transform {
+          translation -11.0 0.0 -6.0
+          rotation     0.0 1.0  0.0 -1.57
+             children [
+                Inline {
+                   url "Trafficlight2.wrl"
+                }
+             ]
+      },	
+      Transform {
+          translation -11.0 0.0 -6.0
+          rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "Trafficlight2.wrl"
+                }
+             ]
+      },
+
+	  Transform	{
+		   translation 25.0 0.0 -60.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "final_trees.wrl"
+                }
+             ]
+	  
+	  },
+	  Transform	{
+		   translation 25.0 0.0 -80.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+
+	  ,
+	  Transform	{
+		   translation 29.0 0.0 -66.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  ,
+	  Transform	{
+		   translation 25.0 0.0 -70.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  ,
+	  Transform	{
+		   translation -25.0 0.0 -40.0
+		   scale .04 .04 .04
+		   rotation     0.0 0.0  0.0 1.57
+             children [
+                Inline {
+                   url "building4.wrl"
+                }
+             ]
+	  
+	  }
+	   Transform	{
+		   translation -20.0 0.0 40.0
+		   scale .006 .006 .006
+		   rotation     0.0 0.0  0.0 1.57
+             children [
+                Inline {
+                   url "building1.wrl"
+                }
+             ]
+	  
+	  }
+	,
+	# Tree set at the right side
+	  Transform	{
+		   translation 25.0 0.0 30.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  	,
+	  Transform	{
+		   translation 20.0 0.0 30.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  	,
+	  Transform	{
+		   translation 20.0 0.0 40.0
+		   rotation     0.0 1.0  0.0 3.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  ,
+	  Transform	{
+		   translation 20.0 0.0 35.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  ,
+	  Transform	{
+		   translation 20.0 0.0 38.0
+		   rotation     0.0 1.0  0.0 2.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  	,
+# Tree set at the left side
+	  Transform	{
+		   translation -40.0 0.0 30.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+
+
+	  	,
+	  Transform	{
+		   translation -45.0 0.0 50.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+
+	  	,
+	  Transform	{
+		   translation -43.0 0.0 40.0
+		   rotation     0.0 1.0  0.0 1.57
+             children [
+                Inline {
+                   url "RandomTrees.wrl"
+                }
+             ]
+	  
+	  }
+	  	,
+	  Transform	{
+		   translation 10.0 0.0 7.2
+		   rotation     0.0 0.0  0.0 1.57
+		   scale .4 .4 .4
+             children [
+                Inline {
+                   url "mhhedge.wrl"
+                }
+             ]
+	  
+	  }
+	  	,
+
+		#Bus stop at the Right Side
+	  Transform	{
+		   translation 10.0 0.2 25.2
+		   rotation     0.0 0.0  0.0 1.57
+		   scale .145 .145 .145
+             children [
+                Inline {
+                   url "Busstop.wrl"
+                }
+             ]
+	  
+	  }
+
+	  ,
+	  # Bus stop at the lef side
+	  Transform	{
+		   translation -10.0 0.2 25.2
+		   rotation     0.0 -1.0  0.0 3.15
+		   scale .145 .145 .145
+             children [
+                Inline {
+                   url "Busstop.wrl"
+                }
+             ]
+	  
+	  },
+
+	  Transform	{
+		   translation -10.0 -49.5 12.2
+		   rotation     0.0 0.0  0.0 -1.4
+		   scale .01 .01 .01
+             children [
+                Inline {
+                   url "Car.wrl"
+                }
+             ]
+	  
+	  }
+   ]
+}

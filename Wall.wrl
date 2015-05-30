@@ -1,0 +1,32 @@
+#VRML V2.0 utf8
+
+Group {
+      #Wall this defines the shape and color of the wall which is used in the main world
+      children Shape {
+        appearance Appearance {
+		
+		
+			texture ImageTexture {
+				 url [
+				  "textures/wall.jpg"
+				 ]
+			 }
+			 textureTransform TextureTransform {
+				scale 100 100
+			}
+		}
+        #This is the extrusion of height 1 metre with an 2D L-shape to match the path
+        geometry Extrusion {
+            convex FALSE
+            crossSection [
+                     0.0   0.0, 0.2   0.0, 0.2 -43.0, -40.0 -43.0,
+                   -40.0 -42.8, 0.0 -42.8, 0.0   0.0,
+            ]
+            spine [
+                      0.0 0.0 0.0, 0.0 1.0 0.0,
+            ]
+        }
+      }
+     
+   
+}

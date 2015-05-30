@@ -1,0 +1,35 @@
+#VRML V2.0 utf8
+
+Group {
+      #Path made by extruding an L-shape to a height of 0.2 metres
+      children Shape {
+        appearance Appearance {
+		
+		
+			texture ImageTexture {
+			 url [
+			  "textures/pavement.jpg"
+			 ]
+			 }
+			 textureTransform TextureTransform {
+       scale 100 100
+      }
+    
+            
+        }
+        #The extrusion of the cross-section values form a 2D L-shape
+        geometry Extrusion {
+            convex FALSE
+            crossSection [
+                     0.0   0.0, 2.55   0.0, 2.55 -45.05, -40.0 -45.05,
+                   -40.0 -43.0, 0.0 -43.0, 0.0   0.0,
+            ]
+            #This specifies the height 
+	    spine [
+                      0.0 0.0 0.0, 0.0 0.2 0.0,
+            ]
+        }
+      }
+     
+   
+}

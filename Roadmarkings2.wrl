@@ -1,0 +1,81 @@
+#VRML V2.0 utf8
+
+Group {
+   children [
+        #This component is made up of several boxes of a small height which form lines
+        #This is one of the Pedestrian lines (z-direction)
+        Transform {
+          translation 9.0 0.0 0.0
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 10.0
+	     }
+            }
+          ]
+        },
+        #The other pedestrian line
+        Transform {
+          translation 10.0 0.0 0.0
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 10.0
+	     }
+            }
+          ]
+        },
+        #Transverse line spanning half the road
+        Transform {
+          translation  11.0 0.0 2.42
+          #rotation    0.0 1.0 0.0 1.57
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 5.0
+	     }
+            }
+          ]
+        },
+        #Line in the centre of the road
+        Transform {
+          translation 30.5 0.0 0.0
+          rotation    0.0 1.0 0.0 1.57
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 39.0
+	     }
+            }
+          ]
+        },
+        #Line in the centre of the lefthand side of the road
+        Transform {
+          translation 30.5 0.0 2.5
+          rotation    0.0 1.0 0.0 1.57
+          children [
+            Shape {
+	     appearance Appearance {
+	         material Material { }
+	     }
+	     geometry Box {
+	         size 0.15 0.14 39.0
+	     }
+            }
+          ]
+        }
+
+    ]
+}

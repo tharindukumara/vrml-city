@@ -1,0 +1,278 @@
+#VRML V2.0 utf8
+
+Group {
+   children [
+      #ground
+      Shape {
+	appearance Appearance {
+		
+		
+			texture ImageTexture {
+				 url [
+				  "textures/grass.jpg"
+				 ]
+			 }
+			 textureTransform TextureTransform {
+				scale 100 100
+			}
+		}
+	geometry Box {
+	    size 100.0 0.1 200.0
+	}
+      },
+      #The road along the z-axis
+      Shape {
+	  appearance Appearance {
+		
+		
+			texture ImageTexture {
+				 url [
+				  "textures/road.jpg"
+				 ]
+			 }
+			 textureTransform TextureTransform {
+				scale 100 100
+			}
+		}
+	
+	geometry Box {
+	    size 15.0 0.12 200.0
+	}
+      },
+      #The traffic island on that road
+      Transform { 
+         translation -0.2 0.0 8.8
+            children [
+               Inline {
+                 url "TrafficIsland.wrl"
+               }
+            ]
+      },
+      Transform {
+         translation 0.2 0.0 -8.8
+         rotation 0.0 1.0 0.0 3.14
+            children [
+               Inline {
+                 url  "TrafficIsland.wrl"
+               }
+            ]
+      }, 
+      Transform {
+        translation 0.0 0.0 0.0
+        children[
+           Inline {
+             url "Roadmarkings1.wrl"
+           }
+        ]
+      }
+      Transform {
+        rotation 0.0 1.0 0.0 3.14
+        children [
+           Inline {
+              url "Roadmarkings1.wrl"
+           }
+        ]
+      },
+      #Road
+      Shape {
+	appearance Appearance {
+		
+		
+			texture ImageTexture {
+				 url [
+				  "textures/road.jpg"
+				 ]
+			 }
+			 textureTransform TextureTransform {
+				scale 100 100
+			}
+		}
+	geometry Box {
+	    size 100.0 0.12 10.0
+	}
+      },
+      Transform {
+        translation 0.0 0.0 0.0
+        children [
+            Inline {
+              url "Roadmarkings2.wrl"
+            }
+        ]
+      },
+      Transform {
+        rotation 0.0 1.0 0.0 3.14
+        children [
+            Inline {
+              url "Roadmarkings2.wrl"
+            }
+        ]
+      },
+      #Wall
+      Transform {
+        translation -10.0 0.0 50.0
+         children [
+           Inline {
+             url "wall.wrl"
+           }
+         ]
+      },
+      #Path
+      Transform {
+        translation -10.0 0.0 50.0
+         children [
+           Inline {
+             url "Path.wrl"
+           }
+         ]
+      },
+      #Wall
+      Transform {
+        translation -10.0 1.0 -50.0
+        rotation     1.0 0.0 0.0 3.14
+          children [
+           Inline {
+             url "wall.wrl"
+           }
+         ]
+      },
+      #Path
+      Transform {
+        translation -10.0 0.19 -50.0
+        rotation      1.0 0.0 0.0 3.14
+         children [
+           Inline {
+             url "Path.wrl"
+           }
+         ]
+      },
+      #Wall
+      Transform {
+        translation 10.0 0.0 -50.0
+        rotation     0.0 1.0 0.0 3.14
+         children [
+           Inline {
+             url "wall.wrl"
+           }
+         ]
+      },
+      #Path
+      Transform {
+        translation 10.0 0.0 -50.0
+        rotation     0.0 1.0 0.0 3.14
+         children [
+           Inline {
+             url "Path.wrl"
+           }
+         ]
+      },
+      #Wall
+      Transform {
+        translation 10.0 1.0 50.0
+        rotation     0.0 0.0 1.0 3.14
+         children [
+           Inline {
+             url "wall.wrl"
+           }
+         ]
+      },
+      #Path
+      Transform {
+        translation 10.0 0.19 50.0
+        rotation     0.0 0.0 1.0 3.14
+         children [
+           Inline {
+             url "Path.wrl"
+           }
+         ]
+      },
+      #Trees
+    #  Transform {
+  #       translation 11.0 0.0 -8.5
+   #        children [
+  #           Inline {
+  #              url "trees.wrl"
+   #          }
+  #         ]
+ #     }
+
+      Transform {
+          translation  -9.9 0.0 14.1
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  9.9 0.0 14.1          
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  -9.9 0.0 -14.1
+          rotation 0.0 1.0 0.0 3.14
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  9.9 0.0 -14.1
+          rotation 0.0 1.0 0.0 3.14
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  -9.9 0.0 7.1
+          rotation 0.0 1.0 0.0 -1.57
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  9.9 0.0 7.1
+          rotation 0.0 1.0 0.0 1.57
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  -9.9 0.0 -7.1
+          rotation 0.0 1.0 0.0 -1.57
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  9.9 0.0 -7.1
+          rotation 0.0 1.0 0.0 1.57
+          children [
+             Inline {
+                url "Pillarline.wrl"
+             }
+          ]
+      }
+      Transform {
+          translation  -16.0 4.0 -10.0
+          rotation      0.0 1.0 0.0 0.438
+          children [
+             Inline {
+                url "billboard.wrl"
+             }
+          ]
+      }   
+   ]
+}

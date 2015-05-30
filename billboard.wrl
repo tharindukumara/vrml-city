@@ -1,0 +1,129 @@
+#VRML V2.0 utf8
+
+DEF Import_billboard_wrl Group {
+ children [
+  DEF NewStrut Group {
+   children [
+    DEF Strut Transform {
+     translation -4 -2 -.08
+     children [
+      Shape {
+       appearance Appearance {
+        material DEF material1 Material {
+         ambientIntensity 0.200
+         shininess 0.200
+         diffuseColor .8 .8 .8
+        }
+       }
+       geometry Box {
+        size .1 4 .15
+       }
+      }
+      Transform {
+       translation 0 -.9 -1.2
+       rotation 1 0 0 .785
+       children [
+        Shape {
+         appearance Appearance {
+          material DEF material2 Material {
+           ambientIntensity 0.200
+           shininess 0.200
+           diffuseColor .8 .8 .8
+          }
+         }
+         geometry Box {
+          size .1 3.4 .15
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+  Transform {
+   translation 8 0 0
+   children [
+    USE NewStrut
+   ]
+  }
+  Shape {
+   appearance Appearance {
+    material DEF material0 Material {
+     ambientIntensity 0.200
+     shininess 0.200
+     diffuseColor .8 .8 .8
+    }
+   }
+   geometry Box {
+    size 10.4 4.4 .1
+   }
+  }
+  Transform {
+   translation 0 .00876 .03
+   children [
+    Shape {
+     appearance Appearance {
+      texture ImageTexture {
+       url [
+        "textures/wall_wood_texture.jpg"
+       ]
+      }
+      material DEF Green Material {
+       ambientIntensity 0.200
+       shininess 0.200
+       diffuseColor 0 1 0
+      }
+     }
+     geometry Box {
+      size 10 4 .05
+     }
+    }
+   ]
+  }
+ ]
+}
+DEF dad_Text1 Transform {
+ translation -3.14352 1.58916 .07018
+ children [
+  DEF Text1 Shape {
+   appearance Appearance {
+    material USE material1
+   }
+   geometry DEF GeoText1 Text {
+    string "2011 - CS - 006"
+    maxExtent 0.000
+    fontStyle FontStyle {
+     family "Arial"
+     style "PLAIN"
+     justify ["BEGIN"
+     "BEGIN"]
+     size 1.000
+     spacing 1.000
+    }
+   }
+  }
+ ]
+}
+DEF dad_Text2 Transform {
+ translation -1.85717 .52004 .09104
+ children [
+  DEF Text2 Shape {
+   appearance Appearance {
+    material USE material1
+   }
+   geometry DEF GeoText2 Text {
+    string "SCS 3012"
+    maxExtent 0.000
+    fontStyle FontStyle {
+     family "Arial"
+     style "PLAIN"
+     justify ["BEGIN"
+     "BEGIN"]
+     size 0.800
+     spacing 1.000
+    }
+   }
+  }
+ ]
+}

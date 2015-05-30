@@ -1,0 +1,118 @@
+#VRML V2.0 utf8
+
+DEF Camera01 Viewpoint {
+  position -22.92 0 30
+  orientation 0 1 0 -0.6524
+  fieldOfView 0.7854
+  description "Camera01"
+}
+
+DEF B1 Transform {
+  translation -40 0 -8
+  scale .5 .5 .5
+  children [
+  DEF Billboard01-TIMER  TimeSensor { loop FALSE cycleInterval 3.333 },
+      DEF Billboard01 Billboard {
+        axisOfRotation 0 1 0
+        children [
+    DEF QuadPatch01-ROOT Transform {
+      translation 0.04493 5.883 0
+      rotation -1 0 0 -1.571
+      scale 1 1 1
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.4 0.7 0.4
+              shininess 0.4
+              transparency 0
+            }
+            texture ImageTexture {
+              url "textures/8tree44l.gif"
+            }
+          }
+          geometry DEF QuadPatch01-FACES IndexedFaceSet {
+            ccw TRUE
+            solid TRUE
+            coord DEF QuadPatch01-COORD Coordinate { point [
+              -1.975 0 5.913, 1.975 0 5.913, -1.975 0 -5.913, 1.975 0 -5.913]
+            }
+            texCoord DEF QuadPatch01-TEXCOORD TextureCoordinate { point [
+              1 0, 0 0, 1 1, 0 1]
+            }
+            coordIndex [
+              3, 0, 1, -1, 3, 2, 0, -1]
+            texCoordIndex [
+              3, 0, 1, -1, 3, 2, 0, -1]
+            }
+        }
+      ]
+    }
+  ] }
+  ]
+}
+
+# the first row of trees defined as a group to be used later.
+DEF firstRow Group  {
+children [
+DEF Billboard01-ROOT Transform {
+  translation 0 0 0
+  children USE B1  
+}
+
+DEF Billboard05-ROOT Transform {
+  translation 5 0 3
+  children USE B1
+}
+
+DEF Billboard07-ROOT Transform {
+  translation 10 0 7
+  children USE B1
+}
+
+DEF Billboard09-ROOT Transform {
+  translation 10 0 10
+  children USE B1
+}
+
+DEF Billboard11-ROOT Transform {
+  translation 10 0 18
+  children USE B1
+}
+
+DEF Billboard13-ROOT Transform {
+  translation 15 0 16
+  children USE B1
+}
+
+DEF Billboard15-ROOT Transform {
+  translation 13 0 19
+  children USE B1
+}
+
+DEF Billboard17-ROOT Transform {
+  translation 0 0 22
+  children USE B1
+}
+
+DEF Billboard19-ROOT Transform {
+  translation 10 0 25
+  children USE B1
+}
+DEF Billboard21-ROOT Transform {
+  translation 10 0 28
+  children USE B1
+}
+DEF Billboard23-ROOT Transform {
+  translation 20 0 31
+  children USE B1
+}
+DEF Billboard25-ROOT Transform {
+  translation 26 0 34
+  children USE B1
+} 
+
+]
+
+
+} # end of first row
